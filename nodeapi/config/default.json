@@ -1,4 +1,4 @@
 {
-  "mongoURI": "",
+  "mongoURI": "mongodb+srv://darkshadow01:darkshadow01@testingcluster.gfwny.mongodb.net/wamessanger?retryWrites=true&w=majority",
   "amazonsecret": "amazon_secret"
 }

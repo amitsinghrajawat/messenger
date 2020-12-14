@@ -80,6 +80,7 @@ function Register({navigation}: RegisterProps) {
           <FormTextInput
             placeholder="Fullname"
             onChangeText={(name) => setName(name)}
+            styles={{}}
           />
         </Box>
 
@@ -87,6 +88,7 @@ function Register({navigation}: RegisterProps) {
           <FormTextInput
             placeholder="Email"
             onChangeText={(email) => setEmail(email)}
+            styles={{}}
           />
         </Box>
 
@@ -94,7 +96,8 @@ function Register({navigation}: RegisterProps) {
           <FormTextInput
             placeholder="Password"
             secureTextEntry
-            onChangeText={(password) => setPassword(password)}
+            onChangeText={(password) => setPassword(password)} 
+            styles={{}}
           />
         </Box>
 

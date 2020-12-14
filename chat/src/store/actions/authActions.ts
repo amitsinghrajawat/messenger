@@ -15,7 +15,7 @@ import {
 import axios from 'axios';
 import {returnErrors} from './errorActions';
 import AsyncStorage from '@react-native-community/async-storage';
-import {socket} from './chatAction';
+import {socket} from './chatActions';
 
 //* Register Action*//
 export const register = ({

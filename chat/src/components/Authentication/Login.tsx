@@ -14,7 +14,8 @@ const {width} = Dimensions.get('window');
 /* Actions */
 import {login} from '../../store/actions/authActions';
 import Loader from '../Loader';
-import {socket} from '../../store/actions/chatAction';
+import {socket} from '../../store/actions/chatActions';
+import User from '../Users/User';
 
 interface LoginProps {
   navigation: CompositeNavigationProp<
@@ -39,7 +40,9 @@ function Login({navigation}: LoginProps) {
   const onLogin = () => {
     new Promise(function (res) {
       res(dispatch(login({email, password})));
-    }).then(() => {});
+    }).then(() => {
+      socket.emit('getUsers');
+    });
   };
 
   const setToken = async (token: string) => {
@@ -57,6 +60,7 @@ function Login({navigation}: LoginProps) {
     const {isAuthenticated, token} = auth;
     setToken(token);
     if (isAuthenticated) {
+      nNavigate('Users');
     }
   }, [auth]);
 
@@ -96,6 +100,7 @@ function Login({navigation}: LoginProps) {
           <FormTextInput
             placeholder="Email"
             onChangeText={(email) => setEmail(email)}
+            styles={{}}
           />
         </Box>
 
@@ -104,7 +109,7 @@ function Login({navigation}: LoginProps) {
             placeholder="Password"
             onChangeText={(password) => setPassword(password)}
             secureTextEntry
-            style={{
+            styles={{
               marginBottom: 30,
             }}
           />
