@@ -7,7 +7,6 @@ module.exports = (io) => {
     socket.on("getUsers", () => {
       User.find({}, (err, users) => {
         io.emit("getAllUsers", users);
-        // console.log(users);
       });
       socket.on(
         "startUniqueChat",
